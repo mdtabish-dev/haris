@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>13th Rajab - Birth Anniversary of Hazrat Ali (R.A)</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Playfair+Display:wght@400;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Amiri', serif;
+        }
+
+        body {
+            background-color: #0a0a0a;
+            color: #D4AF37;
+            overflow-x: hidden;
+            min-height: 100vh;
+            transition: opacity 0.5s ease;
+        }
+
+        .page {
+            display: none;
+            position: relative;
+            min-height: 100vh;
+            padding: 20px;
+            opacity: 0;
+            transition: opacity 0.8s ease;
+        }
+
+        .page.active {
+            display: block;
+            opacity: 1;
+        }
+
+        /* Islamic Pattern Background */
+        .islamic-pattern {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 25% 25%, rgba(212, 175, 55, 0.03) 2px, transparent 2px),
+                radial-gradient(circle at 75% 75%, rgba(212, 175, 55, 0.03) 2px, transparent 2px);
+            background-size: 60px 60px;
+            z-index: -1;
+            animation: patternMove 20s linear infinite;
+        }
+
+        @keyframes patternMove {
+            0% { background-position: 0 0; }
+            100% { background-position: 60px 60px; }
+        }
+
+        /* Floating Elements */
+        .floating-element {
+            position: absolute;
+            color: rgba(212, 175, 55, 0.2);
+            font-size: 24px;
+            z-index: -1;
+            animation: float 15s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); }
+            25% { transform: translateY(-20px) rotate(90deg); }
+            50% { transform: translateY(-40px) rotate(180deg); }
+            75% { transform: translateY(-20px) rotate(270deg); }
+            100% { transform: translateY(0) rotate(360deg); }
+        }
+
+        /* Golden Text Styles */
+        .golden-text {
+            color: #D4AF37;
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.7);
+        }
+
+        .glowing-text {
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 10px rgba(212, 175, 55, 0.7), 0 0 20px rgba(212, 175, 55, 0.5); }
+            to { text-shadow: 0 0 20px rgba(212, 175, 55, 0.9), 0 0 30px rgba(212, 175, 55, 0.7), 0 0 40px rgba(212, 175, 55, 0.5); }
+        }
+
+        /* Buttons */
+        .btn {
+            background: linear-gradient(45deg, #D4AF37, #F7EF8A);
+            color: #000;
+            border: none;
+            padding: 12px 30px;
+            font-size: 18px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin-top: 20px;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.4);
+        }
+
+        .btn:active {
+            transform: translateY(-1px);
+        }
+
+        .btn-shine:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: left 0.7s;
+        }
+
+        .btn-shine:hover:before {
+            left: 100%;
+        }
+
+        /* Input Field */
+        .input-field {
+            width: 100%;
+            max-width: 300px;
+            padding: 15px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border: 2px solid #D4AF37;
+            border-radius: 10px;
+            color: #D4AF37;
+            font-size: 18px;
+            transition: all 0.3s;
+            margin-top: 20px;
+        }
+
+        .input-field:focus {
+            outline: none;
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.7);
+            transform: scale(1.05);
+        }
+
+        .input-field:hover {
+            border-color: #F7EF8A;
+        }
+
+        /* Page 1 - Welcome */
+        .welcome-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+
+        .design-credit {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 14px;
+            animation: float 8s infinite ease-in-out;
+        }
+
+        .welcome-title {
+            font-family: 'Cinzel', serif;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            animation: fadeInDown 1.5s;
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Page 2 - Information */
+        .info-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .personal-greeting {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            text-align: center;
+            animation: fadeIn 1s;
+        }
+
+        .description-box {
+            background-color: rgba(0, 0, 0, 0.7);
+            border: 2px solid #D4AF37;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quote-box {
+            background-color: rgba(212, 175, 55, 0.1);
+            border-left: 5px solid #D4AF37;
+            padding: 20px;
+            margin: 30px 0;
+            font-style: italic;
+            font-size: 1.3rem;
+            animation: slideInRight 1.5s;
+        }
+
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        /* Page 3 - 13 Rajab Mubarak */
+        .rajab-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+
+        .rajab-title {
+            font-family: 'Cinzel', serif;
+            font-size: 4rem;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 1.8rem;
+            margin-bottom: 50px;
+            color: #F7EF8A;
+        }
+
+        .badges-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin: 40px 0;
+        }
+
+        .badge {
+            background: linear-gradient(45deg, rgba(212, 175, 55, 0.2), rgba(212, 175, 55, 0.05));
+            border: 2px solid #D4AF37;
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .badge:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 15px 25px rgba(212, 175, 55, 0.4);
+            background: linear-gradient(45deg, rgba(212, 175, 55, 0.4), rgba(212, 175, 55, 0.1));
+        }
+
+        /* Page 4 - Tap to View */
+        .tap-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .tap-text {
+            font-size: 5rem;
+            margin-bottom: 30px;
+            animation: blink 1.5s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        .instructions {
+            font-size: 1.5rem;
+            margin-top: 30px;
+            color: #F7EF8A;
+        }
+
+        /* Page 5 - Final Tribute */
+        .final-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .final-title {
+            font-family: 'Cinzel', serif;
+            font-size: 4.5rem;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .final-subtitle {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #F7EF8A;
+        }
+
+        .final-description {
+            background-color: rgba(0, 0, 0, 0.7);
+            border: 2px solid #D4AF37;
+            border-radius: 15px;
+            padding: 30px;
+            font-size: 1.3rem;
+            line-height: 1.8;
+            text-align: center;
+            margin: 30px 0;
+            position: relative;
+            animation: borderGlow 3s infinite alternate;
+        }
+
+        @keyframes borderGlow {
+            from { box-shadow: 0 0 20px rgba(212, 175, 55, 0.3); }
+            to { box-shadow: 0 0 40px rgba(212, 175, 55, 0.7); }
+        }
+
+        .floral-decoration {
+            position: absolute;
+            font-size: 2.5rem;
+            color: #D4AF37;
+            animation: rotate 20s infinite linear;
+        }
+
+        .top-left { top: 20px; left: 20px; }
+        .top-right { top: 20px; right: 20px; }
+        .bottom-left { bottom: 20px; left: 20px; }
+        .bottom-right { bottom: 20px; right: 20px; }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .navigation-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        /* Fireworks */
+        .firework {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .welcome-title, .rajab-title, .final-title {
+                font-size: 2.5rem;
+            }
+            
+            .personal-greeting {
+                font-size: 2rem;
+            }
+            
+            .tap-text {
+                font-size: 3rem;
+            }
+            
+            .badge {
+                width: 90px;
+                height: 90px;
+                font-size: 1.2rem;
+            }
+            
+            .badges-container {
+                gap: 15px;
+            }
+            
+            .floral-decoration {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .welcome-title, .rajab-title, .final-title {
+                font-size: 2rem;
+            }
+            
+            .subtitle, .final-subtitle {
+                font-size: 1.5rem;
+            }
+            
+            .badge {
+                width: 70px;
+                height: 70px;
+                font-size: 1rem;
+            }
+            
+            .btn {
+                padding: 10px 20px;
+                font-size: 16px;
+            }
+        }
+
+        /* Page Transition Animation */
+        @keyframes zoomOut {
+            0% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(1.5); opacity: 0; }
+        }
+
+        .zoom-out {
+            animation: zoomOut 0.8s forwards;
+        }
+
+        /* Shake animation for validation */
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+            20%, 40%, 60%, 80% { transform: translateX(5px); }
+        }
+
+        .shake {
+            animation: shake 0.5s;
+        }
+    </style>
+</head>
+<body>
+    <!-- Islamic pattern background -->
+    <div class="islamic-pattern"></div>
+
+    <!-- Floating decorative elements -->
+    <div class="floating-element" style="top:10%; left:5%;">﷽</div>
+    <div class="floating-element" style="top:20%; right:10%;">ﷺ</div>
+    <div class="floating-element" style="bottom:30%; left:15%;">ﯓ</div>
+    <div class="floating-element" style="bottom:20%; right:20%;">۞</div>
+
+    <!-- Page 1: Welcome -->
+    <div class="page active" id="page1">
+        <div class="welcome-container">
+            <div class="design-credit golden-text">Design By Haris</div>
+            <h1 class="welcome-title golden-text glowing-text">Welcome</h1>
+            <p style="font-size: 1.5rem; margin-bottom: 10px;">Celebrating the blessed occasion of</p>
+            <p style="font-size: 2rem; margin-bottom: 30px; color: #F7EF8A;">13th Rajab - Birth of Hazrat Ali (R.A)</p>
+            
+            <p style="font-size: 1.2rem; margin-top: 30px;">Please enter your name to begin</p>
+            <input type="text" class="input-field" id="userName" placeholder="Your Name">
+            <button class="btn btn-shine" id="continueBtn">Continue</button>
+        </div>
+    </div>
+
+    <!-- Page 2: Information -->
+    <div class="page" id="page2">
+        <div class="info-container">
+            <h1 class="personal-greeting golden-text" id="greetingText">Welcome, Friend</h1>
+            
+            <div class="description-box">
+                <h2 style="font-family: 'Cinzel', serif; margin-bottom: 20px; text-align: center;">The Significance of 13th Rajab</h2>
+                <p style="font-size: 1.3rem; line-height: 1.8; margin-bottom: 15px;">
+                    13th Rajab is a momentous day in Islamic history, marking the birth anniversary of Hazrat Ali ibn Abi Talib (R.A), the cousin and son-in-law of Prophet Muhammad (S.A.W).
+                </p>
+                <p style="font-size: 1.3rem; line-height: 1.8;">
+                    Born in the holy Kaaba, Hazrat Ali (R.A) was the first male to accept Islam and is revered for his unwavering faith, profound wisdom, and exceptional courage.
+                </p>
+            </div>
+            
+            <div class="quote-box">
+                <p>"The most complete gift of God is a life based on knowledge."</p>
+                <p style="text-align: right; margin-top: 10px;">- Hazrat Ali (R.A)</p>
+            </div>
+            
+            <div style="text-align: center;">
+                <button class="btn btn-shine" id="continueToCelebration">Continue to Celebration</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page 3: 13 Rajab Mubarak -->
+    <div class="page" id="page3">
+        <div class="rajab-container">
+            <h1 class="rajab-title golden-text glowing-text">13 Rajab Mubarak</h1>
+            <p class="subtitle">Sher-e-Khuda Hazrat Ali (R.A)</p>
+            
+            <div class="badges-container">
+                <div class="badge golden-text">Muhammad</div>
+                <div class="badge golden-text">Fatima</div>
+                <div class="badge golden-text">Hasan</div>
+                <div class="badge golden-text">Hussain</div>
+                <div class="badge golden-text">Ali</div>
+                <div class="badge golden-text">Zainab</div>
+            </div>
+            
+            <button class="btn btn-shine" id="tapToContinue">Tap to Continue</button>
+        </div>
+    </div>
+
+    <!-- Page 4: Tap to View -->
+    <div class="page" id="page4">
+        <div class="tap-container" id="tapContainer">
+            <h1 class="tap-text golden-text glowing-text">Tap to View</h1>
+            <p class="instructions">Click or tap anywhere to reveal the tribute</p>
+        </div>
+    </div>
+
+    <!-- Page 5: Final Tribute -->
+    <div class="page" id="page5">
+        <div class="final-container">
+            <!-- Floral decorations -->
+            <div class="floral-decoration top-left">❀</div>
+            <div class="floral-decoration top-right">❀</div>
+            <div class="floral-decoration bottom-left">❀</div>
+            <div class="floral-decoration bottom-right">❀</div>
+            
+            <h1 class="final-title golden-text glowing-text">13 Rajab</h1>
+            <p class="final-subtitle">Sher-e-Khuda Hazrat Ali (R.A)</p>
+            
+            <div class="final-description">
+                <p>On the 13th of Rajab, in the year 600 CE,</p>
+                <p>Hazrat Ali (R.A) was born inside the Holy Kaaba in Mecca.</p>
+                <p>This unique honor was bestowed upon no one else in history.</p>
+                <p>He was the gate to the city of knowledge and the Lion of Allah.</p>
+            </div>
+            
+            <div class="navigation-buttons">
+                <button class="btn" id="backBtn">Back</button>
+                <button class="btn" id="homeBtn">Home</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // DOM Elements
+        const pages = document.querySelectorAll('.page');
+        const userNameInput = document.getElementById('userName');
+        const continueBtn = document.getElementById('continueBtn');
+        const greetingText = document.getElementById('greetingText');
+        const continueToCelebration = document.getElementById('continueToCelebration');
+        const tapToContinue = document.getElementById('tapToContinue');
+        const tapContainer = document.getElementById('tapContainer');
+        const backBtn = document.getElementById('backBtn');
+        const homeBtn = document.getElementById('homeBtn');
+
+        // Current page tracking
+        let currentPage = 1;
+
+        // Initialize the application
+        function initApp() {
+            // Add floating elements dynamically
+            addFloatingElements();
+            
+            // Set up event listeners
+            setupEventListeners();
+            
+            // Start with page 1 active
+            showPage(1);
+        }
+
+        // Add floating Islamic decorative elements
+        function addFloatingElements() {
+            const container = document.body;
+            const islamicSymbols = ['﷽', 'ﷺ', 'ﯓ', '۞', 'ﮩ', 'ﮨ', 'ﮪ', 'ﮬ'];
+            
+            for (let i = 0; i < 12; i++) {
+                const element = document.createElement('div');
+                element.className = 'floating-element';
+                element.textContent = islamicSymbols[Math.floor(Math.random() * islamicSymbols.length)];
+                
+                // Random position
+                const top = Math.random() * 100;
+                const left = Math.random() * 100;
+                element.style.top = `${top}%`;
+                element.style.left = `${left}%`;
+                
+                // Random animation duration
+                const duration = 15 + Math.random() * 20;
+                element.style.animationDuration = `${duration}s`;
+                
+                container.appendChild(element);
+            }
+        }
+
+        // Set up all event listeners
+        function setupEventListeners() {
+            // Continue button on welcome page
+            continueBtn.addEventListener('click', goToPage2);
+            
+            // Enter key in input field
+            userNameInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    goToPage2();
+                }
+            });
+            
+            // Continue to celebration button
+            continueToCelebration.addEventListener('click', function() {
+                showPage(3);
+            });
+            
+            // Tap to continue button
+            tapToContinue.addEventListener('click', function() {
+                showPage(4);
+            });
+            
+            // Tap to view page interaction
+            tapContainer.addEventListener('click', function() {
+                // Add zoom out effect
+                document.getElementById('page4').classList.add('zoom-out');
+                
+                // Show final page after delay
+                setTimeout(function() {
+                    showPage(5);
+                    createFireworks();
+                }, 800);
+            });
+            
+            // Navigation buttons
+            backBtn.addEventListener('click', function() {
+                showPage(4);
+            });
+            
+            homeBtn.addEventListener('click', function() {
+                showPage(1);
+            });
+        }
+
+        // Navigate to page 2 (Information page)
+        function goToPage2() {
+            const userName = userNameInput.value.trim();
+            
+            // Input validation with shake animation
+            if (userName === '') {
+                userNameInput.classList.add('shake');
+                setTimeout(() => {
+                    userNameInput.classList.remove('shake');
+                }, 500);
+                return;
+            }
+            
+            // Update greeting text
+            greetingText.textContent = `Welcome, ${userName}`;
+            
+            // Show page 2
+            showPage(2);
+        }
+
+        // Show specific page with transition
+        function showPage(pageNumber) {
+            // Remove zoom-out class if present
+            document.getElementById('page4').classList.remove('zoom-out');
+            
+            // Hide all pages
+            pages.forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Show the requested page
+            document.getElementById(`page${pageNumber}`).classList.add('active');
+            currentPage = pageNumber;
+            
+            // Special effects for specific pages
+            if (pageNumber === 5) {
+                createFireworks();
+            }
+        }
+
+        // Create fireworks effect for final page
+        function createFireworks() {
+            const container = document.querySelector('.final-container');
+            
+            // Clear any existing fireworks
+            const existingFireworks = document.querySelectorAll('.firework');
+            existingFireworks.forEach(fw => fw.remove());
+            
+            // Create new fireworks
+            for (let i = 0; i < 30; i++) {
+                setTimeout(() => {
+                    const firework = document.createElement('div');
+                    firework.className = 'firework';
+                    
+                    // Random position
+                    const left = Math.random() * 100;
+                    const top = Math.random() * 100;
+                    firework.style.left = `${left}%`;
+                    firework.style.top = `${top}%`;
+                    
+                    // Random color
+                    const colors = ['#D4AF37', '#F7EF8A', '#FFD700', '#B8860B'];
+                    const color = colors[Math.floor(Math.random() * colors.length)];
+                    firework.style.backgroundColor = color;
+                    
+                    // Add to container
+                    container.appendChild(firework);
+                    
+                    // Animate
+                    animateFirework(firework);
+                    
+                    // Remove after animation
+                    setTimeout(() => {
+                        if (firework.parentNode) {
+                            firework.parentNode.removeChild(firework);
+                        }
+                    }, 1500);
+                }, i * 100);
+            }
+        }
+
+        // Animate individual firework
+        function animateFirework(element) {
+            // Random size
+            const size = 3 + Math.random() * 7;
+            element.style.width = `${size}px`;
+            element.style.height = `${size}px`;
+            
+            // Keyframes for explosion effect
+            const keyframes = [
+                { transform: 'scale(0)', opacity: 1 },
+                { transform: `scale(${2 + Math.random() * 3})`, opacity: 0 }
+            ];
+            
+            const options = {
+                duration: 1000 + Math.random() * 500,
+                easing: 'cubic-bezier(0.1, 0.8, 0.9, 0.1)'
+            };
+            
+            element.animate(keyframes, options);
+        }
+
+        // Initialize the application when DOM is loaded
+        document.addEventListener('DOMContentLoaded', initApp);
+    </script>
+</body>
+</html>
